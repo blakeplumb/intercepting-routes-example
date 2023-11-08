@@ -36,10 +36,10 @@ const photos = [
   },
   {
     id: "6",
-    name: "lafond.eth",
-    href: "https://twitter.com/laf0nd/status/1464640065615929346",
-    username: "@laf0nd",
-    imageSrc: "https://pbs.twimg.com/media/FFNyYEAXsAMdOhV?format=jpg",
+    name: "Matias Baldanza",
+    href: "https://twitter.com/matiasbaldanza/status/1404834163203715073",
+    username: "@matiasbaldanza",
+    imageSrc: "https://pbs.twimg.com/media/E374pyaWEAMCT2R?format=jpg",
   },
   {
     id: "7",
@@ -54,13 +54,6 @@ const photos = [
     href: "https://twitter.com/AfterDarkAngelo/status/1456372859090075648",
     username: "@AfterDarkAngelo",
     imageSrc: "https://pbs.twimg.com/media/FDYTZN1VIAAT-X1?format=jpg",
-  },
-  {
-    id: "9",
-    name: "Matias Baldanza",
-    href: "https://twitter.com/matiasbaldanza/status/1404834163203715073",
-    username: "@matiasbaldanza",
-    imageSrc: "https://pbs.twimg.com/media/E374pyaWEAMCT2R?format=jpg",
   },
 ];
 
