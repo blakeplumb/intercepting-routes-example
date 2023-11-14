@@ -1,4 +1,6 @@
-export default function Layout({ children, modal }) {
+import "./global.css";
+
+const RootLayout = ({ children, modal }) => {
   return (
     <html>
       <body>
@@ -7,4 +9,6 @@ export default function Layout({ children, modal }) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

@@ -1,18 +1,35 @@
 import Link from "next/link";
-import swagPhotos from "../photos";
-import Image from "next/image";
+import { PEOPLE } from "@/utils/tags";
 
-export default function Home() {
-  const photos = swagPhotos;
+const getPeople = async () => {
+  const res = await fetch("http://localhost:3000/api/people", {
+    next: { tags: [PEOPLE] },
+  });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch people");
+  }
+
+  return res.json();
+};
+
+const Home = async ({ ...props }) => {
+  const { data: people } = await getPeople();
 
   return (
     <main>
-      <h1>NextGram</h1>
-      {photos.map(({ id, imageSrc }) => (
-        <Link key={id} href={`/photos/${id}`}>
-          <Image alt="" src={imageSrc} height={500} width={500} />
-        </Link>
-      ))}
+      <h1>People</h1>
+      <ul>
+        {people.map(({ id, name }) => (
+          <li key={id}>
+            <Link href={`/people/${id}`}>{name}</Link>
+          </li>
+        ))}
+      </ul>
+      <Link href="/people/">Add Person</Link>
     </main>
   );
-}
+};
+
+export default Home;
