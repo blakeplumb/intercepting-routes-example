@@ -1,7 +1,7 @@
-export default function PhotoPage({ params: { id } }) {
-  return (
-    <div>
-      <h1>Should be here yet</h1>
-    </div>
-  );
-}
+import UpdatePersonForm from "@/components/update-person-form";
+
+const UpdatePerson = async ({ params: { id } }) => {
+  return <UpdatePersonForm id={id} />;
+};
+
+export default UpdatePerson;

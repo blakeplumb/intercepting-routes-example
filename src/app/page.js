@@ -14,7 +14,7 @@ const getPeople = async () => {
   return res.json();
 };
 
-const Home = async ({ ...props }) => {
+const Home = async () => {
   const { data: people } = await getPeople();
 
   return (

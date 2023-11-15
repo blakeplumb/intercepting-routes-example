@@ -1,7 +1,7 @@
-export default function PhotoPage({ params: { id } }) {
-  return (
-    <div>
-      <h1>Shouldn't be here yet</h1>
-    </div>
-  );
-}
+import CreatePersonForm from "@/components/create-person-form";
+
+const CreatePerson = () => {
+  return <CreatePersonForm />;
+};
+
+export default CreatePerson;
