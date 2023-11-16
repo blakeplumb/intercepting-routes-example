@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/utils/openDatabase";
+import sleep from "@/utils/sleep";
 
 class ValidationError extends Error {
   constructor(message) {
@@ -30,6 +31,7 @@ export async function PATCH(request, { params }) {
     const { id } = params;
     const db = await dbConnect.open();
     const { name } = await request.json();
+    await sleep(2000);
 
     // Check validation
     if (typeof name !== "undefined" && !name) {
@@ -51,6 +53,7 @@ export async function DELETE(request, { params }) {
     const { id } = params;
     const db = await dbConnect.open();
     await db.run(`DELETE from people WHERE id = ${id}`);
+    await sleep(2000);
     db.close();
     return new Response(null, { status: 204 });
   } catch (err) {

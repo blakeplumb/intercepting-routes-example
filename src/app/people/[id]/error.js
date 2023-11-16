@@ -1,7 +1,14 @@
 "use client";
 
-const UpdatePersonErrorModal = () => {
-  return <div>There was an error.</div>;
+const UpdatePersonError = ({ reset }) => {
+  return (
+    <div>
+      There was an error updating the person.{" "}
+      <button type="button" onClick={reset}>
+        Try Again
+      </button>
+    </div>
+  );
 };
 
-export default UpdatePersonErrorModal;
+export default UpdatePersonError;

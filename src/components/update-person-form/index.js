@@ -1,42 +1,5 @@
 import { PEOPLE } from "@/utils/tags";
-import { revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
-
-const cancel = async () => {
-  "use server";
-  redirect("/");
-};
-
-const updatePersonById = (id) => async (formData) => {
-  "use server";
-
-  const res = await fetch(`http://localhost:3000/api/people/${id}`, {
-    method: "PATCH",
-    body: JSON.stringify({ name: formData.get("name") }),
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to patch person");
-  }
-
-  revalidateTag(PEOPLE);
-  redirect("/");
-};
-
-const deletePersonById = (id) => async () => {
-  "use server";
-
-  const res = await fetch(`http://localhost:3000/api/people/${id}`, {
-    method: "DELETE",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to delete person");
-  }
-
-  revalidateTag(PEOPLE);
-  redirect("/");
-};
+import FormButtons from "./FormButtons";
 
 const getPersonById = async (id) => {
   const res = await fetch(`http://localhost:3000/api/people/${id}`, {
@@ -70,9 +33,7 @@ const UpdatePersonForm = async ({ id }) => {
             type="text"
           />
         </p>
-        <button formAction={updatePersonById(id)}>Submit</button>
-        <button formAction={deletePersonById(id)}>Delete</button>
-        <button formAction={cancel}>Cancel</button>
+        <FormButtons personId={id} />
       </form>
     </>
   );
