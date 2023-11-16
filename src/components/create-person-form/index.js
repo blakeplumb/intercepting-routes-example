@@ -1,6 +1,13 @@
 import { PEOPLE } from "@/utils/tags";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
+import Loading from "./Loading";
+
+const cancel = async () => {
+  "use server";
+
+  redirect(".");
+};
 
 const createPerson = async (formData) => {
   "use server";
@@ -23,12 +30,16 @@ const CreatePersonForm = () => {
   return (
     <>
       <h2>Add Person</h2>
-      <form action={createPerson}>
+      <form>
         <p>
           <label htmlFor="name-input">name</label>
           <input id="name-input" name="name" required type="text" />
         </p>
-        <button type="submit">Submit</button>
+        <button formAction={createPerson}>Submit</button>
+        <button formAction={cancel} formNoValidate>
+          Cancel
+        </button>
+        <Loading />
       </form>
     </>
   );

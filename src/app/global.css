@@ -6,7 +6,3 @@ dialog::backdrop {
 label {
   display: block;
 }
-
-form:empty {
-  display: none;
-}

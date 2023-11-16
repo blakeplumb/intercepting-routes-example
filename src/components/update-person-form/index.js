@@ -2,6 +2,12 @@ import { PEOPLE } from "@/utils/tags";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
+const cancel = async () => {
+  "use server";
+  console.log("this is getting cancelled");
+  redirect("/");
+};
+
 const updatePersonById = (id) => async (formData) => {
   "use server";
 
@@ -54,7 +60,7 @@ const UpdatePersonForm = async ({ id }) => {
   return (
     <>
       <h2>Update Person</h2>
-      <form id="update-person-form" action={updatePersonById(id)}>
+      <form>
         <p>
           <label htmlFor="name-input">name</label>
           <input
@@ -65,14 +71,10 @@ const UpdatePersonForm = async ({ id }) => {
             type="text"
           />
         </p>
+        <button formAction={updatePersonById(id)}>Submit</button>
+        <button formAction={deletePersonById(id)}>Delete</button>
+        <button formAction={cancel}>Cancel</button>
       </form>
-      <button form="delete-person-form" type="submit">
-        Delete
-      </button>
-      <button form="update-person-form" type="submit">
-        Submit
-      </button>
-      <form id="delete-person-form" action={deletePersonById(id)}></form>
     </>
   );
 };

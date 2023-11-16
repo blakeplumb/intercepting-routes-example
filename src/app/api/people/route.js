@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/utils/openDatabase";
+import sleep from "@/utils/sleep";
 
 class ValidationError extends Error {
   constructor(message) {
@@ -28,6 +29,7 @@ export async function POST(request) {
   try {
     const db = await dbConnect.open();
     const { name } = await request.json();
+    await sleep(2000);
 
     // Check validation
     if (!name) {
