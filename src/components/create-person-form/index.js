@@ -6,7 +6,7 @@ import Loading from "./Loading";
 const cancel = async () => {
   "use server";
 
-  redirect(".");
+  redirect("/");
 };
 
 const createPerson = async (formData) => {
@@ -23,7 +23,7 @@ const createPerson = async (formData) => {
   }
 
   revalidateTag(PEOPLE);
-  redirect(".");
+  redirect("/");
 };
 
 const CreatePersonForm = () => {

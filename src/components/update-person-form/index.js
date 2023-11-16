@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 
 const cancel = async () => {
   "use server";
-  console.log("this is getting cancelled");
   redirect("/");
 };
 
@@ -21,7 +20,7 @@ const updatePersonById = (id) => async (formData) => {
   }
 
   revalidateTag(PEOPLE);
-  redirect("..");
+  redirect("/");
 };
 
 const deletePersonById = (id) => async () => {
@@ -36,7 +35,7 @@ const deletePersonById = (id) => async () => {
   }
 
   revalidateTag(PEOPLE);
-  redirect("..");
+  redirect("/");
 };
 
 const getPersonById = async (id) => {

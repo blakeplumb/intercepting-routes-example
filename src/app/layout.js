@@ -1,12 +1,9 @@
 import "./global.css";
 
-const RootLayout = ({ children, modal }) => {
+const RootLayout = ({ children }) => {
   return (
     <html>
-      <body>
-        {children}
-        {modal}
-      </body>
+      <body>{children}</body>
     </html>
   );
 };

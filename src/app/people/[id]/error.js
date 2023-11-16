@@ -1,9 +1,7 @@
 "use client";
 
-import Dialog from "@/components/dialog";
-
 const UpdatePersonErrorModal = () => {
-  return <Dialog>There was an error.</Dialog>;
+  return <div>There was an error.</div>;
 };
 
 export default UpdatePersonErrorModal;
